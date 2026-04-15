@@ -48,7 +48,7 @@
 <img width="709" height="399" alt="image" src="https://github.com/user-attachments/assets/3f96e79e-6be4-41a2-849c-ee9c0e7f139f" />
 
 ### c. Halaman Form Teman
-> ![Screenshot Form Web Teman](<img width="707" height="398" alt="image" src="https://github.com/user-attachments/assets/3344cec6-6da9-4e10-94e6-7b477a94f787" />
+<img width="707" height="398" alt="image" src="https://github.com/user-attachments/assets/3344cec6-6da9-4e10-94e6-7b477a94f787" />
 )
 
 ### d. Halaman Home Teman (Setelah Input Data)
