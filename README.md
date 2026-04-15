@@ -10,8 +10,8 @@
 ## 1. Docker Desktop - Images
 *(Halaman image Docker Desktop setelah push image project sendiri dan pull image dari teman)*
 
-> ![Screenshot Docker Images](<img width="809" height="455" alt="image" src="https://github.com/user-attachments/assets/7f53130f-8226-43ab-a7e6-475e0fc0f8a9" />
-)
+> ![Screenshot Docker Images](<img width="1920" height="1080" alt="Screenshot (948)" src="https://github.com/user-attachments/assets/0794e831-7bb9-44ec-b534-921c84fe6a0f" />)
+
 
 ---
 
