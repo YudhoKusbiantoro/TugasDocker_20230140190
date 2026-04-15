@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Yudho Kusbiantoro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background-attachment: fixed;
+            color: #fff;
+            padding: 40px 20px;
+            position: relative;
+        }
+        .shape {
+            position: fixed;
+            filter: blur(100px);
+            z-index: -1;
+        }
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: #8e2de2;
+            top: -100px;
+            left: -100px;
+            border-radius: 50%;
+        }
+        .shape-2 {
+            width: 500px;
+            height: 500px;
+            background: #4a00e0;
+            bottom: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 198, 255, 0.3);
+        }
+        .user-info h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .user-info p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .btn-logout {
+            padding: 10px 25px;
+            background: rgba(255, 75, 75, 0.1);
+            border: 1px solid rgba(255, 75, 75, 0.3);
+            color: #ff4b4b;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-logout:hover {
+            background: #ff4b4b;
+            color: white;
+            box-shadow: 0 10px 20px rgba(255, 75, 75, 0.3);
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .section-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .btn-add {
+            padding: 12px 25px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 114, 255, 0.4);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+        th {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 13px;
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        td {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px 15px;
+            font-size: 15px;
+        }
+        tr td:first-child {
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+        tr td:last-child {
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        tr {
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        tbody tr:hover td {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <div class="container">
+        <div class="header-card">
+            <div class="profile">
+                <div class="avatar">Y</div>
+                <div class="user-info">
+                    <h2>Yudho Kusbiantoro</h2>
+                    <p>NIM: 20230140190 | Deployment Perangkat Lunak</p>
+                </div>
+            </div>
+            <a href="/logout" class="btn-logout">Logout</a>
+        </div>
+
+        <div class="main-card">
+            <div class="section-header">
+                <h3>Data Mahasiswa</h3>
+                <a href="/form" class="btn-add">
+                    <span>+</span> Tambah Data
+                </a>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Lengkap</th>
+                            <th>NIM</th>
+                            <th>Jenis Kelamin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${#lists.isEmpty(dataMahasiswa)}">
+                            <td colspan="4">
+                                <div class="empty-state">
+                                    <p>Belum ada data mahasiswa yang terdaftar saat ini.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr th:each="u, iterStat : ${dataMahasiswa}">
+                            <td th:text="${iterStat.count}">1</td>
+                            <td th:text="${u.nama}" style="font-weight: 500;"></td>
+                            <td th:text="${u.nim}"></td>
+                            <td>
+                                <span th:text="${u.jenisKelamin}" 
+                                      th:style="${u.jenisKelamin == 'Laki-laki'} ? 'color: #00c6ff; background: rgba(0,198,255,0.1); padding: 5px 12px; border-radius: 20px; font-size: 13px;' : 'color: #ff758c; background: rgba(255,117,140,0.1); padding: 5px 12px; border-radius: 20px; font-size: 13px;'">
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
